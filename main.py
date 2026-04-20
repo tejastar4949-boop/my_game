@@ -1,16 +1,11 @@
-import streamlit as st  # This is the 'Web Engine'
+# No imports needed for standard FLAMES logic in PyScript
 
-# This replaces the pinck background with a clean website title
-st.title("🔥 FLAMES Relationship App By Surya Teja.S")
+def run_game():
+    # PyScript will show a pop-up box in the browser for these inputs
+    name1 = input("Enter the first name:")
+    name2 = input("Enter the second name:")
 
-# Instead of input(), we use text_input for web boxes
-name1 = st.text_input("Enter the first name:")
-name2 = st.text_input("Enter the second name:")
-
-# We wrap your logic in a button so it only runs when clicked
-if st.button("See Results"):
     if name1 and name2:
-        # --- YOUR ORIGINAL LOGIC STARTS HERE ---
         n1 = name1.lower().replace(" ", "")
         n2 = name2.lower().replace(" ", "")
 
@@ -31,8 +26,11 @@ if st.button("See Results"):
                 else:
                     flames.pop()
 
-            # Instead of print(), we use st.success to show a green box
-            st.success(f"Result: {flames[0]}")
-        # --- YOUR ORIGINAL LOGIC ENDS HERE ---
+            print(f"Result for {name1} & {name2}: {flames[0]}")
+        else:
+            print("The names are too similar to calculate!")
     else:
-           st.warning("Please type both names first!")
+        print("Please provide both names.")
+
+# Run the game
+run_game()
