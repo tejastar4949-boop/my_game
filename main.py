@@ -1,9 +1,9 @@
-# No imports needed for standard FLAMES logic in PyScript
+from pyscript import sync
 
 def run_game():
-    # PyScript will show a pop-up box in the browser for these inputs
-    name1 = input("Enter the first name:")
-    name2 = input("Enter the second name:")
+    # 'sync.input' is the secret to making the pop-ups work!
+    name1 = sync.input("Enter the first name:")
+    name2 = sync.input("Enter the second name:")
 
     if name1 and name2:
         n1 = name1.lower().replace(" ", "")
@@ -26,11 +26,11 @@ def run_game():
                 else:
                     flames.pop()
 
-            print(f"Result for {name1} & {name2}: {flames[0]}")
+            print(f"🔥 Result for {name1} & {name2}: {flames[0]} 🔥")
         else:
             print("The names are too similar to calculate!")
     else:
-        print("Please provide both names.")
+        print("Please enter both names.")
 
-# Run the game
+# This line actually starts the code
 run_game()
